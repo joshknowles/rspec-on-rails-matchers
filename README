@@ -1,0 +1,18 @@
+rspec-on-rails-matchers
+=======================
+
+Overview
+--------
+
+Adds the following RSpec matchers:
+
+  * blah
+  * blah
+  * blah
+
+Authors
+-------
+
+  * Josh Knowles <joshknowles@gmail.com>
+
+Copyright (c) 2007 Josh Knowles, released under the MIT license
