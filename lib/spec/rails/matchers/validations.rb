@@ -3,7 +3,7 @@ module Spec
     module Matchers
       def validate_presence_of(attribute)
         return simple_matcher("model to validate the presence of #{attribute}") do |model|
-          model[attribute] = nil
+          model.send("#{attribute}=", nil)
           !model.valid? && model.errors.invalid?(attribute)
         end
       end
@@ -13,11 +13,11 @@ module Spec
         max = options[:between].last
 
         return simple_matcher("model to validate the length of #{attribute} between #{min} and #{max}") do |model|
-          model[attribute] = 'a' * (min - 1)
+          model.send("#{attribute}=", 'a' * (min - 1))
 
           invalid = !model.valid? && model.errors.invalid?(attribute)
 
-          model[attribute] = 'a' * (max + 1)
+          model.send("#{attribute}=", 'a' * (max + 1))
 
           invalid && !model.valid? && model.errors.invalid?(attribute)
         end
