@@ -112,7 +112,7 @@ Adds the following RSpec matchers:
 Usage:
 ------
 
-In your view:
+In your view spec:
 
     it "should render new form" do
         render "/users/new.html.erb"
@@ -125,6 +125,52 @@ In your view:
           with_submit_button
         end
     end
+    
+In your model spec:
+
+    describe User do
+      before(:each) do
+        @user = User.new
+      end
+
+      it "should have many posts" do
+        @user.should have_many(:posts)
+      end
+
+      it "should belong to a group" do
+        @user.should belong_to(:group)
+      end
+      
+      it do
+        @user.should validate_presence_of(:email)
+      end
+
+      it do
+        @user.should validate_uniqueness_of(:email)
+      end
+
+      it do
+        @user.should validate_uniqueness_of(:login)
+      end
+
+      it do
+        @user.should validate_presence_of(:login)
+      end
+
+      it do
+        @user.should validate_presence_of(:name)
+      end
+      
+      it do
+        @user.should validate_length_of(:password, :between => 4..40)
+      end  
+
+      it do
+        @user.should validate_confirmation_of(:password)
+      end
+
+    end
+
     
 Bugs, feature requests?
 -----------------------
