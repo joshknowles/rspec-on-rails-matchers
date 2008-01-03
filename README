@@ -10,9 +10,11 @@ Adds the following RSpec matchers:
   * blah
   * blah
 
-Authors
--------
+Core Contributors
+-----------------
 
   * Josh Knowles <joshknowles@gmail.com>
+  * Bryan Helmcamp <bryan@brynary.com>
+  * Matt Aimonetti <mattaimonetti@gmail.com>
 
-Copyright (c) 2007 Josh Knowles, released under the MIT license
+Copyright (c) 2008 The Plugin Development Team, released under the MIT license
