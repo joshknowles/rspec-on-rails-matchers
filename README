@@ -9,7 +9,7 @@ or
     svn checkout http://rspec-on-rails-matchers.googlecode.com/svn/trunk/ vendor/plugins/rspec_on_rails_matchers
     
 Textmate bundle:
-http://rspec-on-rails-matchers.googlecode.com/files/RSpecOnRailsMatchers.tmbundle.zip
+http://rspec-on-rails-matchers.googlecode.com/svn/textmate-bundle/RSpecOnRailsMatchers.tmbundle.zip
 
 
 Dependencies:
