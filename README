@@ -56,6 +56,7 @@ Adds the following RSpec matchers:
     TM snippet: [msvu + tab]
 
     object.should validate_length_of(:attribute, :between => 5..10)
+    object.should validate_length_of(:attribute, :is => 5)
     TM snippet: [msvl + tab]
 
 
@@ -186,5 +187,10 @@ Core Contributors
   * Josh Knowles <joshknowles@gmail.com>
   * Bryan Helmkamp <bryan@brynary.com>
   * Matt Aimonetti <mattaimonetti@gmail.com>
+
+Contributors
+-------------
+
+  * ckknight (improved should validate_length_of)
 
 Copyright (c) 2008 The Plugin Development Team, released under the MIT license

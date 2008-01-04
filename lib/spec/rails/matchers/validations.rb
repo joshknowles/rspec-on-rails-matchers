@@ -9,17 +9,32 @@ module Spec
       end
 
       def validate_length_of(attribute, options)
-        min = options[:between].first
-        max = options[:between].last
+        if options.has_key? :between
+          min = options[:between].first
+          max = options[:between].last
+        elsif options.has_key? :is
+          min = options[:is]
+          max = min
+        elsif options.has_key? :minimum
+          min = options[:minimum]
+        elsif options.has_key? :maximum
+          max = options[:maximum]
+        end
+        
+        return simple_matcher("model to validate the length of #{attribute} between #{min || 0} and #{max || 'Infinity'}") do |model|
+          invalid = false
+          if !min.nil? && min >= 1
+            model.send("#{attribute}=", 'a' * (min - 1))
 
-        return simple_matcher("model to validate the length of #{attribute} between #{min} and #{max}") do |model|
-          model.send("#{attribute}=", 'a' * (min - 1))
+            invalid = !model.valid? && model.errors.invalid?(attribute)
+          end
+          
+          if !max.nil?
+            model.send("#{attribute}=", 'a' * (max + 1))
 
-          invalid = !model.valid? && model.errors.invalid?(attribute)
-
-          model.send("#{attribute}=", 'a' * (max + 1))
-
-          invalid && !model.valid? && model.errors.invalid?(attribute)
+            invalid ||= !model.valid? && model.errors.invalid?(attribute)
+          end
+          invalid
         end
       end
 
