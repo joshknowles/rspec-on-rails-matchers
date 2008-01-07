@@ -63,13 +63,13 @@ module Spec
       
       def with_checkbox_for(attribute)
         return simple_matcher("have a checkbox for '#{attribute}'") do |response|
-          have_tag("input##{attribute}[type=checkbox]").matches?(response)
+          with_tag("input##{attribute}[type=checkbox]").matches?(response)
         end
       end
 
       def have_submit_button
         return simple_matcher("have a submit button") do |response|
-          with_tag("input[type=submit]").matches?(response)
+          have_tag("input[type=submit]").matches?(response)
         end
       end
       
