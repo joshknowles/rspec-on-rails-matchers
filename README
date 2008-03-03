@@ -47,7 +47,7 @@ Adds the following RSpec matchers:
     object.should validate_uniqueness_of(:attribute)
     TM snippet: [msvu + tab]
 
-    object.should validate_length_of(:attribute, :between => 5..10)
+    object.should validate_length_of(:attribute, :within => 5..10)
     object.should validate_length_of(:attribute, :is => 5)
     TM snippet: [msvl + tab]
 

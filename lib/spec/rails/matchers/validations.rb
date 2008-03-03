@@ -9,9 +9,9 @@ module Spec
       end
 
       def validate_length_of(attribute, options)
-        if options.has_key? :between
-          min = options[:between].first
-          max = options[:between].last
+        if options.has_key? :within
+          min = options[:within].first
+          max = options[:within].last
         elsif options.has_key? :is
           min = options[:is]
           max = min
@@ -21,7 +21,7 @@ module Spec
           max = options[:maximum]
         end
         
-        return simple_matcher("model to validate the length of #{attribute} between #{min || 0} and #{max || 'Infinity'}") do |model|
+        return simple_matcher("model to validate the length of #{attribute} within #{min || 0} and #{max || 'Infinity'}") do |model|
           invalid = false
           if !min.nil? && min >= 1
             model.send("#{attribute}=", 'a' * (min - 1))
