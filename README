@@ -51,6 +51,11 @@ Adds the following RSpec matchers:
     object.should validate_length_of(:attribute, :is => 5)
     TM snippet: [msvl + tab]
 
+  * Observers:
+    Verify that the observer is observing a class. (doesn't verify that the observation works)
+    
+    object.should observe(:model)
+    example: GroupObserver.should observe(Group)
 
   * Views:
     Verifies that the views contains some tags.
@@ -173,6 +178,8 @@ Core Contributors
 Contributors
 -------------
 
-  * ckknight (improved should validate_length_of)
+  * ckknight
+  * Matt Pelletier
+  * Luke Melia
 
 Copyright (c) 2008 The Plugin Development Team, released under the MIT license
