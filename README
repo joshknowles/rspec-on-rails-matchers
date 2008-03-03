@@ -63,6 +63,8 @@ Adds the following RSpec matchers:
     response.should have_form_posting_to(url_or_path)
     TM snippet: [hfpt + tab]
 
+    response.should have_form_putting_to(url_or_path)
+    
     response.should have_text_field_for(:attribute)
     TM snippet: [htff + tab]
 

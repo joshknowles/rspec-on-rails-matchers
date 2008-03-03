@@ -7,6 +7,13 @@ module Spec
         end
       end
 
+      def have_form_puting_to(url_or_path, id)
+        return simple_matcher("have a form submitting via PUT to '#{url_or_path}/#{id}'") do |response|
+          have_tag("form[method=post][action=#{url_or_path}/#{id}]").matches?(response)
+          have_tag("input[name=_method][type=hidden][value=put]").matches?(response)
+        end
+      end
+      
       def have_label_for(attribute, text)
         return simple_matcher("have a label for '#{attribute}' with value of '#{text}'") do |response|
           have_tag("label[for=#{attribute}]").matches?(response)
